@@ -1,36 +1,36 @@
 class Hew < Formula
   desc "Carve code, not chaos — Beads-powered methodology for AI coding agents."
   homepage "https://github.com/droidnoob/hew"
-  version "0.1.0"
+  version "0.2.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/droidnoob/hew/releases/download/v0.1.0/hew-aarch64-apple-darwin.tar.xz"
-      sha256 "4ffb48047406eef6dfa68943cbc7c86407e9fdc14a04b0239ff871cd9cdc077e"
+      url "https://github.com/droidnoob/hew/releases/download/v0.2.0/hew-aarch64-apple-darwin.tar.xz"
+      sha256 "5b9dd043b7b8ad65f01921df6d5e0f1df49ae298a23140138de1d5d5ff067929"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/droidnoob/hew/releases/download/v0.1.0/hew-x86_64-apple-darwin.tar.xz"
-      sha256 "ee735ffcf92df8b33ed20a253903ee41dd6fc1a0154e95a5b78d903d7071b02d"
+      url "https://github.com/droidnoob/hew/releases/download/v0.2.0/hew-x86_64-apple-darwin.tar.xz"
+      sha256 "2015587b92f3525993b8007c67d1d77e2e54b4e75beecdf157f2a4fa7e2c106e"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/droidnoob/hew/releases/download/v0.1.0/hew-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "d4eca44fb7e66d1a63c2508acb31a78957e6c548f5aac4c5b3430da86eed4e87"
+      url "https://github.com/droidnoob/hew/releases/download/v0.2.0/hew-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "a0ca522bf38bf9f6bf4a87347e3d03f5ebd69bca33c26e86187090aaa04f43e8"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/droidnoob/hew/releases/download/v0.1.0/hew-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "8d38ce08f3695d6b45262a7d5b5433c26cb68196fafb8f4ecec0c64e33740f88"
+      url "https://github.com/droidnoob/hew/releases/download/v0.2.0/hew-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "843173c158ef5a4a05ad30160eb339b8607e24b27aeb9cb796cfabf33e75836a"
     end
   end
   license "MIT"
 
   BINARY_ALIASES = {
-    "aarch64-apple-darwin": {},
+    "aarch64-apple-darwin":      {},
     "aarch64-unknown-linux-gnu": {},
-    "x86_64-apple-darwin": {},
-    "x86_64-pc-windows-gnu": {},
-    "x86_64-unknown-linux-gnu": {}
-  }
+    "x86_64-apple-darwin":       {},
+    "x86_64-pc-windows-gnu":     {},
+    "x86_64-unknown-linux-gnu":  {},
+  }.freeze
 
   def target_triple
     cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
@@ -48,18 +48,10 @@ class Hew < Formula
   end
 
   def install
-    if OS.mac? && Hardware::CPU.arm?
-      bin.install "hew"
-    end
-    if OS.mac? && Hardware::CPU.intel?
-      bin.install "hew"
-    end
-    if OS.linux? && Hardware::CPU.arm?
-      bin.install "hew"
-    end
-    if OS.linux? && Hardware::CPU.intel?
-      bin.install "hew"
-    end
+    bin.install "hew" if OS.mac? && Hardware::CPU.arm?
+    bin.install "hew" if OS.mac? && Hardware::CPU.intel?
+    bin.install "hew" if OS.linux? && Hardware::CPU.arm?
+    bin.install "hew" if OS.linux? && Hardware::CPU.intel?
 
     install_binary_aliases!
 
