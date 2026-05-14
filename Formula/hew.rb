@@ -1,25 +1,25 @@
 class Hew < Formula
   desc "Carve code, not chaos — Beads-powered methodology for AI coding agents."
   homepage "https://github.com/droidnoob/hew"
-  version "0.3.0"
+  version "0.4.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/droidnoob/hew/releases/download/v0.3.0/hew-aarch64-apple-darwin.tar.xz"
-      sha256 "efa5e4dc043d5ddc8957604c19b62d2b1505294c3f0aa46012c77d5c3920d3e4"
+      url "https://github.com/droidnoob/hew/releases/download/v0.4.0/hew-aarch64-apple-darwin.tar.xz"
+      sha256 "94e5589c4385f6fc80924f57fceabf546a75e6bc8736c7612a65d306dcc721f2"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/droidnoob/hew/releases/download/v0.3.0/hew-x86_64-apple-darwin.tar.xz"
-      sha256 "9a2c800ab0ad9c9b3fdf45a7ecf0295ddbfa99e6404d4ad19cedbd166d470eca"
+      url "https://github.com/droidnoob/hew/releases/download/v0.4.0/hew-x86_64-apple-darwin.tar.xz"
+      sha256 "f8f32f3b862a9f467c9235f80867d6e2959dec08b0e08fe6411fa7054a121a55"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/droidnoob/hew/releases/download/v0.3.0/hew-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "b04e902255946a744e41b4bbcb3f77ad455fee6c5f4060ad9109ee8244262ac4"
+      url "https://github.com/droidnoob/hew/releases/download/v0.4.0/hew-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "723733faa73e495e6a14c308bc626b9a23cfc71b34d37176a74ba61e885e7f3e"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/droidnoob/hew/releases/download/v0.3.0/hew-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "84e3b7fc582e33483045493dca10de5550de9abbe2cd7558ba8737e9881fc584"
+      url "https://github.com/droidnoob/hew/releases/download/v0.4.0/hew-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "c561a469eb3c52b47a868d4bdb88080ab6aa0da9458d98cb538ddfe69fee727c"
     end
   end
   license "MIT"
